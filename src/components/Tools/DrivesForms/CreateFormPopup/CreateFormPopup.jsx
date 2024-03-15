@@ -410,7 +410,7 @@ const postDataToMongoDB = async (data) => {
       // Add timestamp to the data
       const timestampedData = { timestamp: new Date(), ...data };
 
-      const response = await axios.post('http://127.0.0.1:5000/api/save-data', timestampedData);
+      const response = await axios.post('http://10.8.0.13:5401/api/save-data', timestampedData);
      
       console.log('going')
       if (response.status === 200) {
@@ -428,7 +428,7 @@ const postDataToMongoDB = async (data) => {
 
 const fetchLatestDocuments = async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:5000/api/get-latest-documents');
+    const response = await axios.get('http://10.8.0.13:5401/api/get-latest-documents');
     const latestDocuments = response.data;
     
     // Store latest documents in IndexedDB

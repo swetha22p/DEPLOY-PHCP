@@ -173,7 +173,7 @@ const fetchData = async (numRecords) => {
 
         if (isOnline) {
             // Fetch data from MongoDB
-            const response = await axios.get('http://127.0.0.1:5000/api/get-data');
+            const response = await axios.get('http://10.8.0.13:5401/api/get-data');
             console.log(response.data);
 
             if (response.status === 200) {
@@ -452,7 +452,7 @@ const clearIndexedDBFields = async (imageCache, audioCache) => {
     
             if (navigator.onLine) {
                 // Fetch count from MongoDB
-                const mongoDBResponse = await axios.get('http://127.0.0.1:5000/api/get-mongodb-count');
+                const mongoDBResponse = await axios.get('http://10.8.0.13:5401/api/get-mongodb-count');
     
                 if (mongoDBResponse.status === 200) {
                     setMongoDBCount(mongoDBResponse.data.mongoDBCount);
@@ -609,7 +609,7 @@ function base64ToBinary(base64String) {
             // Add timestamp to the data
             const timestampedData = { timestamp: new Date(), ...data };
     
-            const response = await axios.post('http://127.0.0.1:5000/api/save-data', timestampedData);
+            const response = await axios.post('http://10.8.0.13:5401/api/save-data', timestampedData);
             if (response.status === 200) {
                 console.log('Form data submitted to MongoDB successfully!');
             } else {
